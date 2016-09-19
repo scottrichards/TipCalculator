@@ -14,21 +14,29 @@ class TipCalculatorController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipControl: UISegmentedControl!
 //    var numberFormatter : NumberFormatter = NumberFormatter()
-    let tipPercentages = [ 0.12, 0.15, 0.18]
+    var tipAmounts : TipAmountsModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tipAmounts = TipData.readData()     // reload data by reading from UserDefaults
+        tipControl.selectedSegmentIndex = (tipAmounts?.defaultAmount)!
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
     private func updateTip() {
-        let billAmount = Double(billTextField.text!) ?? 0
-        let tipAmount = billAmount * tipPercentages[tipControl.selectedSegmentIndex]
+        let billAmount = Float(billTextField.text!) ?? 0
+        var tipPercentage = Float(Constants.tipAmounts[1])
+        if let tipAmounts = tipAmounts {
+            tipPercentage = tipAmounts.amounts[tipAmounts.defaultAmount]
+        }
+        let tipAmount = billAmount * tipPercentage
         let totalAmount = billAmount + tipAmount
         self.tipLabel.text = String(format:"$ %.2f",tipAmount)
         self.totalLabel.text = String(format:"$ %.2f",totalAmount)

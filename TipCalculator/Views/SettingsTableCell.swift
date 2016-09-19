@@ -11,10 +11,9 @@ import UIKit
 class SettingsTableCell: UITableViewCell {
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var tipAmount: UILabel!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

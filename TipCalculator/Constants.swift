@@ -11,4 +11,13 @@ import Foundation
 struct Constants {
     static let tipLabels = ["Poor","Average","Good"]
     static let tipAmounts = [0.12, 0.15, 0.18]
+    
+    struct Segues {
+        static let TipInfoSegue = "tipInfoSegue"
+    }
+    
+    struct UserDefaults {
+        static let TipAmounts = "TipAmounts"
+        static let TipDefault = "TipDefault"
+    }
 }
