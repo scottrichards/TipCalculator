@@ -20,4 +20,7 @@ struct Constants {
         static let TipAmounts = "TipAmounts"
         static let TipDefault = "TipDefault"
     }
+    
+    static let maxTipPercentage = 25
+    static let minTipPercentage = 5
 }

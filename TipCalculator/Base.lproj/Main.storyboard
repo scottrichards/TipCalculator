@@ -81,6 +81,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ccq-EV-cu6">
+                                <frame key="frameInset" minY="380" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -225,6 +229,24 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="218" id="zTg-7R-gnR">
+                                        <rect key="frame" x="0.0" y="152" width="375" height="218"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zTg-7R-gnR" id="NIB-0g-wIo">
+                                            <frame key="frameInset" width="375" height="217"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z9z-MW-hrP">
+                                                    <frame key="frameInset" minY="-87" height="216"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="qzU-Yb-m9P" id="LFe-eA-6Si"/>
+                                                        <outlet property="delegate" destination="qzU-Yb-m9P" id="Ypr-eV-pA2"/>
+                                                    </connections>
+                                                </pickerView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -236,6 +258,7 @@
                     <connections>
                         <outlet property="amountLabel" destination="bP3-ex-Yhk" id="ajk-Jz-XUi"/>
                         <outlet property="defaultSwitch" destination="9Bh-1s-Afp" id="gtR-le-144"/>
+                        <outlet property="percentPicker" destination="z9z-MW-hrP" id="nWL-FS-ONq"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bHe-KE-RH3" userLabel="First Responder" sceneMemberID="firstResponder"/>

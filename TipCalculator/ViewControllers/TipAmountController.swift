@@ -8,11 +8,14 @@
 
 import UIKit
 
-class TipAmountController: UITableViewController {
+class TipAmountController: UITableViewController, UIPickerViewDataSource {
+
+
     var tipAmount : TipAmountsModel?
     var selectedIndex : Int = 0     // which item in the amounts array was selected
     @IBOutlet weak var defaultSwitch: UISwitch!
     @IBOutlet weak var amountLabel: UILabel!
+    @IBOutlet weak var percentPicker: UIPickerView!
     
 
     
@@ -46,5 +49,20 @@ class TipAmountController: UITableViewController {
             TipData.writeData(tipModel: tipAmount)
         }
     }
-
+    
+ //   @available(iOS 2.0, *)
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return Constants.maxTipPercentage - Constants.minTipPercentage + 1
+    }
+    
+//    @available(iOS 2.0, *)
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+ //   @available(iOS 2.0, *)
+    public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(row + Constants.minTipPercentage)
+    }
+    
 }
