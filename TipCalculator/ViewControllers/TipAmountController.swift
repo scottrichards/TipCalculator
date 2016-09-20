@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TipAmountController: UITableViewController, UIPickerViewDataSource {
+class TipAmountController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
 
     var tipAmount : TipAmountsModel?
@@ -27,9 +27,10 @@ class TipAmountController: UITableViewController, UIPickerViewDataSource {
         } else {
             defaultSwitch.isOn = false
         }
-        amountLabel.text = String(format: "%d%%",Int( 100 * (tipAmount?.amounts[selectedIndex])!))
+        setTo(percentage: Int( 100 * (tipAmount?.amounts[selectedIndex])!))
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -50,17 +51,35 @@ class TipAmountController: UITableViewController, UIPickerViewDataSource {
         }
     }
     
- //   @available(iOS 2.0, *)
+    // MARK: PickerView
+    
+    func setTo(percentage:Int) {
+        var percentage = percentage
+        percentage = max(percentage,Constants.minTipPercentage)
+        percentage = min(percentage,Constants.maxTipPercentage)
+        amountLabel.text = String(format: "%d%%",percentage)
+        percentPicker.selectRow(percentage - Constants.minTipPercentage, inComponent: 0, animated:false)
+    }
+    
+
+    // User selected row in PickerView
+    public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let percentage = Constants.minTipPercentage + row
+        tipAmount?.amounts[selectedIndex] = Float(Float(percentage) / Float(100))
+        TipData.writeData(tipModel: tipAmount!)
+        amountLabel.text = String(format: "%d%%",percentage)
+    }
+    
+    // MARK: PickerView Datasource
+    
     public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return Constants.maxTipPercentage - Constants.minTipPercentage + 1
     }
     
-//    @available(iOS 2.0, *)
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
- //   @available(iOS 2.0, *)
     public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return String(row + Constants.minTipPercentage)
     }
