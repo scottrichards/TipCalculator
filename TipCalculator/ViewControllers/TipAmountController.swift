@@ -24,7 +24,7 @@ class TipAmountController: UITableViewController {
         } else {
             defaultSwitch.isOn = false
         }
-        amountLabel.text = String(format: "%d",Int( 100 * (tipAmount?.amounts[selectedIndex])!))
+        amountLabel.text = String(format: "%d%%",Int( 100 * (tipAmount?.amounts[selectedIndex])!))
     }
 
     override func didReceiveMemoryWarning() {

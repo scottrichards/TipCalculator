@@ -48,7 +48,7 @@ class SettingsController: UITableViewController {
 
         if (indexPath.row < Constants.tipLabels.count) {
             cell.tipLabel.text = Constants.tipLabels[indexPath.row]
-            cell.tipAmount.text = String(format:"%d", Int( 100 * (tipAmounts?.amounts[indexPath.row])!) )
+            cell.tipAmount.text = String(format:"%d%%", Int( 100 * (tipAmounts?.amounts[indexPath.row])!) )
         }
         if (indexPath.row == tipAmounts?.defaultAmount) {
             cell.accessoryType = .checkmark
