@@ -18,6 +18,7 @@
 		0171461A1D9056C700812443 /* TipAmountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017146191D9056C700812443 /* TipAmountController.swift */; };
 		01863ABE1D8EFAA2004DF5F5 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01863ABD1D8EFAA2004DF5F5 /* SettingsController.swift */; };
 		01863AC01D8EFAEC004DF5F5 /* TipCalculatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01863ABF1D8EFAEC004DF5F5 /* TipCalculatorController.swift */; };
+		01C43DBB1D943DA100644D56 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01C43DBA1D943DA100644D56 /* Images.xcassets */; };
 		01EC49371D8F021300AF24F2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EC49361D8F021300AF24F2 /* Constants.swift */; };
 		01EC493A1D8F02E100AF24F2 /* SettingsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EC49391D8F02E100AF24F2 /* SettingsTableCell.swift */; };
 /* End PBXBuildFile section */
@@ -57,6 +58,7 @@
 		017146191D9056C700812443 /* TipAmountController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipAmountController.swift; sourceTree = "<group>"; };
 		01863ABD1D8EFAA2004DF5F5 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		01863ABF1D8EFAEC004DF5F5 /* TipCalculatorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipCalculatorController.swift; sourceTree = "<group>"; };
+		01C43DBA1D943DA100644D56 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		01EC49361D8F021300AF24F2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		01EC49391D8F02E100AF24F2 /* SettingsTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +114,7 @@
 				011CF4FB1D8D99FA001E5027 /* AppDelegate.swift */,
 				011CF5021D8D99FA001E5027 /* Assets.xcassets */,
 				01EC49361D8F021300AF24F2 /* Constants.swift */,
+				01C43DBA1D943DA100644D56 /* Images.xcassets */,
 				011CF5071D8D99FA001E5027 /* Info.plist */,
 				011CF5041D8D99FA001E5027 /* LaunchScreen.storyboard */,
 				011CF4FF1D8D99FA001E5027 /* Main.storyboard */,
@@ -278,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				011CF5061D8D99FA001E5027 /* LaunchScreen.storyboard in Resources */,
+				01C43DBB1D943DA100644D56 /* Images.xcassets in Resources */,
 				011CF5031D8D99FA001E5027 /* Assets.xcassets in Resources */,
 				011CF5011D8D99FA001E5027 /* Main.storyboard in Resources */,
 			);
@@ -406,7 +410,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -450,7 +454,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

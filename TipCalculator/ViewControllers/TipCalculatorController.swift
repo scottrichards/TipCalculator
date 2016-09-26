@@ -13,17 +13,19 @@ class TipCalculatorController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipControl: UISegmentedControl!
-//    var numberFormatter : NumberFormatter = NumberFormatter()
+    var numberFormatter : NumberFormatter = NumberFormatter()
     var tipPercentages : TipAmountsModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tipPercentages = TipData.readData()     // reload data by reading from UserDefaults
-        tipControl.selectedSegmentIndex = (tipPercentages?.defaultAmount)!
+        numberFormatter.numberStyle = .currency
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        tipPercentages = TipData.readData()     // reload data by reading from UserDefaults
+        tipControl.selectedSegmentIndex = (tipPercentages?.defaultAmount)!
         updateTip()
+        updateSegmentedControl()
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,8 +41,18 @@ class TipCalculatorController: UIViewController, UITextFieldDelegate {
         }
         let tipAmount = billAmount * tipPercentage
         let totalAmount = billAmount + tipAmount
-        self.tipLabel.text = String(format:"$ %.2f",tipAmount)
-        self.totalLabel.text = String(format:"$ %.2f",totalAmount)
+        let tipNumber = NSNumber(floatLiteral: Double(tipAmount))
+        self.tipLabel.text = numberFormatter.string(from: tipNumber)
+        self.totalLabel.text = numberFormatter.string(from: NSNumber(floatLiteral: Double(totalAmount)))
+        //String(format:"$ %.2f",tipAmount)
+//        self.totalLabel.text = String(format:"$ %.2f",totalAmount)
+    }
+    
+    private func updateSegmentedControl() {
+        for i in 0..<(tipPercentages?.amounts.count)! {
+            let percentString = String(format: "%d%%", Int((tipPercentages?.amounts[i])! * 100))
+            tipControl.setTitle(percentString, forSegmentAt: i)
+        }
     }
     
     // MARK : Actions
